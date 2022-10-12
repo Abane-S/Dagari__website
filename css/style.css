@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Rubik:wght@700&display=swap');
+
+/* COLORS */
+:root{
+
+    /*================ Colors ================*/
+    --first-color: rgb(255, 180, 0);         /* hsl(42, 100%, 50%) */
+    --first-color-darked: rgb(246, 150, 27); /* For the comment */
+    --title-color-light: rgb(255, 255,255);
+    --title-color-darked: rgb(51, 51, 51);
+    --text-color-light: rgb(255, 255, 255);
+    --text-color-darked: rgb(102, 102, 102);
+    --black-button: rgb(42, 42, 42);
+    --white-color: rgb(255, 255, 255);
+    --black-color: rbg(0, 0, 0);
+
+    /*================ Font and typography ================*/
+    --title-font: 'Rubik', sans-serif;
+    --body-font: 'Open Sans', sans-serif;
+    --big-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /*================ Font and typography ================*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*================ Margenes Bottom ================*/
+    /*.5rem = 8px | 1rem = 16px ... */
+    --mb-0-5: .5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+
+    /*================ Z index ================*/
+    --z-tooltip: 10;
+    --z-fixed: 100
+}
+
+/* Responsive typographiy */
+@media  screen and (min-width: 968px) {
+    :root {
+        --big-font-size: 3.5rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+/*================ BASE ================*/
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body,
+button,
+input,
+textarea{
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+body{
+    margin: var(--header-height) 0 0 0;
+    background-color: var(--body-color);
+    color: var(--text-color-light);
+    transition: .4s; /* For animation dark mode */
+}
+
+button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+h1,h2,h3{
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+
+/*================ NAV ================*/
+.nav{
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo,
+.nav__toogle,
+.nav__close{
+    color: var(--title-color);
+}
+
+.nav__logo{
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: -1px;
+    display: inline-flex;
+    align-items: center;
+    column-gap: .5rem;
+    transition: .3s;
+}
+
+.nav__logo-icon{
+    font-size: 1.15rem;
+    color: var(--first-color);
+}
+
+.nav__logo:hover{
+    color: var(--first-color);
+}
+
+.nav__toogle{
+    display: inline-flex;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 767px){
+    .nav__menu{
+        position: fixed;
+        background-color: var(--container-color);
+        width: 80%;
+        height: 100%;
+        top: 0;
+        right: -100%;
+        box-shadow: -2px 0 4px hsla(var(--hue), 24%, 15%, .1);
+        padding: 4rem 0 0 3rem;
+        border-radius: 1rem 0 0 1rem;
+        transition: .3s;
+        z-index: var(--z-fixed);
+    }
+    
+}
+
+.nav__close{
+    font-size: 1.5rem;
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    cursor: pointer;
+}
+
+.nav__list{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+}
+
+.nav__link{
+    color:var(--title-color);
+    font-weight: var(--font-medium);
+    transition: .3s;
+}
+
+.nav__link:hover{
+    color: var(--first-color);
+}
+
+/* Show menu */
+.show-menu{
+    right: 0;
+}
+
+
+/* Change background header */
+.scroll-header{
+    box-shadow: 0 1px 4px hsla(var(--hue), 4%, 15%, .1);
+}
+
+
+/* Active link */
+.active-link{
+    position: relative;
+    color: var(--first-color);
+}
+
+.active-link::after{
+    content: '';
+    position: absolute;
+    bottom: -.5rem;
+    left: 0;
+    width: 50%;
+    height: 2px;
+    background-color: var(--first-color);
+}
+
+
+/*================ HEADER ================*/
+.header{
+    height: 5rem;
+    width: 100%;
+    background-color: var(--white-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    transition: .4s; /* For animation dark mode */
+}
+
+
+
+/*================ HOME ================*/
+
+
+.home__container{
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: radial-gradient( circle at top left, rgba(40, 40, 40, 0.79)
+    0%, rgba(40, 40, 40, 0.86) 100% ), url(/assets/Construction_image/construction-11.jpg) !important;
+    height: 40vw;
+}
+
+.background{
+    padding-top: 10vw;
+    padding-right: 8rem;
+    padding-bottom: 10vw;
+    padding-left: 6vw;
+    height: auto;
+    grid-column: 1 / span 2;
+}
+
+.home__title-all{
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--mb-1);
+}
+
+.home__title{
+    font-size: var(--big-font-size);
+    line-height: 1.1em;
+    padding-left: var(--mb-0-5);
+    text-align: center;
+}
+
+.home__title-before{
+    content: '';
+    left: -.01rem;
+    width: .5rem;
+    height: 5rem;
+    background-color: var(--first-color);
+}
+
+.home__title::before{
+
+}
+
+.home__description{
+    font-size: var(--h2-font-size);
+    line-height: 1.1em;
+    margin-top: var(--mb-1-5);
+    margin-bottom: 5rem;
+    letter-spacing: .01rem;
+}
+
+.home__button{
+    font-size: var(--normal-font-size);
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 1.25rem 2rem;
+    background-color: var(--first-color);
+    color: var(--text-color-light);
+}
+
+.home__services{
+    background-color: var(--first-color);
+}
+
+.home__services-title{
+    color: var(--black-button);
+    font-size: var(--h2-font-size);
+    font-family: 'Rubik', sans-serif;
+    padding: 5rem 0rem 3.5rem 2rem;
+}
+
+.home__services-detail{
+    display: flex;
+    flex-direction: row;
+    gap: var(--mb-1);
+    margin-bottom: var(--mb-2);
+    margin-left: var(--mb-2);
+}
+
+.home__services-detail img{
+    width: 4rem;
+}
+
+.home__service-title{
+    color: var(--black-button);
+    margin-bottom: var(--mb-0-75);
+}
+
