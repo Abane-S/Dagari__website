@@ -151,7 +151,7 @@ img{
     background-repeat: no-repeat;
     background-position: center;
     background-image: radial-gradient( circle at top left, rgba(40, 40, 40, 0.79)
-    0%, rgba(40, 40, 40, 0.86) 100% ), url(/assets/Construction_image/construction-11.jpg) !important;
+    0%, rgba(40, 40, 40, 0.86) 100% ), url(../assets/Construction_image/construction-11.jpg) !important;
 }
 
 .background{
@@ -317,7 +317,7 @@ img{
 
 .about{
     background-image: radial-gradient(circle at top left, rgba(12, 12, 12, 0.4) 0%,
-                    rgba(12, 12, 12, 0) 100%), url(/assets/Construction_image/construction-13.jpg) !important;
+                    rgba(12, 12, 12, 0) 100%), url(../assets/Construction_image/construction-13.jpg) !important;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50%;
