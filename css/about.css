@@ -1,0 +1,706 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Rubik:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
+
+/* COLORS */
+:root{
+
+    /*================ Colors ================*/
+    --first-color: rgb(255, 180, 0);         /* hsl(42, 100%, 50%) */
+    --first-color-darked: rgb(246, 150, 27); /* For the comment */
+    --title-color-light: rgb(255, 255,255);
+    --title-color-darked: rgb(51, 51, 51);
+    --text-color-light: rgb(255, 255, 255);
+    --text-color-darked: rgb(102, 102, 102);
+    --black-button: rgb(42, 42, 42);
+    --white-color: rgb(255, 255, 255);
+    --black-color: rbg(0, 0, 0);
+
+    /*================ Font and typography ================*/
+    --title-font: 'Rubik', sans-serif;
+    --body-font: 'Open Sans', sans-serif;
+    --big-font-size: 4rem;
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 2rem;
+    --h3-font-size: 1rem;
+    --p-font-size: 1.375rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /*================ Font and typography ================*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*================ Margenes Bottom ================*/
+    /*.5rem = 8px | 1rem = 16px ... */
+    --mb-0-5: .5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+
+    /*================ Z index ================*/
+    --z-tooltip: 10;
+    --z-fixed: 100
+}
+
+/* Responsive typographiy */
+@media  screen and (max-width: 1000px) {
+    :root {
+        --big-font-size: 2.75rem;
+        --h1-font-size: 2.625rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --p-font-size: 1.375rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+@media  screen and (max-width: 700px) {
+    :root {
+        --big-font-size: 2rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+/*================ BASE ================*/
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body,
+button,
+input,
+textarea{
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+body{
+    background-color: #ffff;
+    color: var(--text-color-light);
+    transition: .4s; /* For animation dark mode */
+    font-family: 'Rubik', Arial, Helvetica, sans-serif;
+}
+
+button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+h1,h2,h3{
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+:focus{
+    outline: none;
+}
+
+
+
+
+/*================ HEADER ================*/
+.header{
+    height: 4rem;
+    width: 100%;
+    background-color: var(--white-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    transition: .4s; /* For animation dark mode */
+}
+
+
+/*================ HOME ================*/
+.home{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: radial-gradient( ellipse at center, rgba(40, 40, 40, 0.8)
+    0%, rgba(40, 40, 40, 0.7) 100% ), url(../assets/About__img/worker_img.jpg) !important;
+    height: 99.5vh;
+    margin: auto;
+    padding-top: 10rem;
+}
+
+.background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+
+}
+
+.home__title{
+    font-size: var(--big-font-size);
+    line-height: 1.3em;
+    font-weight: 700;
+}
+
+.home__title{
+    border-color: var(--first-color);
+    border-left-width: 10px;
+    border-left-style: solid;
+    padding-left: 16px;
+    margin-bottom: 0px;
+}
+
+.home__description{
+    font-size: 1.2rem;
+    line-height: 1.6em;
+    font-family: Open ,Arial, Helvetica, sans-serif;
+    display: inline-block;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    display: block;
+}
+
+.home__button{
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    border: solid var(--first-color);
+    border-left-width: 1.5rem;
+    border-right-width: 1.5rem;
+    border-top-width: 1.25rem;
+    border-bottom-width: 1.25rem;
+    background-color: var(--first-color);
+    color: var(--text-color-light);
+    position: relative;
+    transition: all 300ms ease-out;
+    display: inline;
+}
+
+.home .material-symbols-outlined{
+    position: absolute;
+    bottom: -4px;
+    left: 11.75rem;
+    color: var(--first-color);
+    transition: all 300ms ease-out;
+}
+
+.home__button:hover{
+    border-right-width: 2.1rem;
+    border-left-width: 1.2rem;
+}
+
+.home__button:hover .material-symbols-outlined{
+    color: #fff;
+    left: 12.45rem;
+}
+
+.home__services{
+
+}
+
+.title__home__services{
+    color: var(--first-color);
+    font-size: var(--h2-font-size);
+    margin-bottom: 2rem;
+}
+
+.home__services-details{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.home__services-details img{
+    width: 4rem;
+}
+
+.home__services-details div p{
+    margin-top: 1rem;
+}
+
+/*================ ABOUT ================*/
+
+.about__dagari{
+    color: black;
+    margin: 5rem auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.about__dagari h1{
+    text-align: center;
+    font-size:var(--h1-font-size);
+    margin-bottom: 3rem;
+}
+
+.title__about-after{
+    margin: 0rem auto 4rem auto ;
+    background-color: var(--first-color);
+    width: 3.5rem;
+    height: .35rem;
+}
+
+.about__dagari div {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.about__dagari div p{
+    width: 25rem;
+    font-size: 15px;
+    line-height: 1.8em;
+}
+
+
+/*================ DESCRIPTION ================*/
+
+.description__container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: black;
+    background-color: #f7f7f7;
+}
+
+.description__group{
+    margin: 5rem 3.5rem;
+}
+
+.description__group h1{
+    font-size: 2.25rem;
+    text-transform: capitalize;
+    margin-bottom: 4rem;
+}
+
+.description__group .description__detail {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.description__detail{
+    width: 35vw;
+}
+
+.description__detail span{
+    font-size: 3rem;
+}
+
+.description__detail h3{
+    padding-bottom: 1rem;
+    font-size: 18px;
+    line-height: 1.4em;
+    font-weight: 700;
+}
+
+.description__detail p{
+    font-size: 15px;
+    line-height: 1.8em;
+}
+
+.button__devis{
+    font-size: var(--small-font-size);
+    font-family: var(--title-font);
+    font-weight: 700;
+    color: var(--first-color);
+    border: .2rem solid var(--first-color);
+    letter-spacing: .15rem;
+    padding: var(--mb-1) var(--mb-2);
+    position: relative;
+    transition: all 300ms ease-out;
+    margin-top: 2rem;
+    float: right;
+}
+
+.button__devis .material-symbols-outlined{
+    position: absolute;
+    left: 9.9rem;
+    bottom: .75rem;
+    color: #f7f7f7;
+    transition: all 300ms ease-out;
+}
+
+.button__devis:hover{
+    background-color: var(--first-color);
+    color: #f7f7f7;
+}
+
+.button__devis:hover .material-symbols-outlined{
+    color: #fff;
+    left: 10.4rem;
+}
+
+
+.img__part img{
+    height: 100vh;
+}
+
+.detail__container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: var(--black-button);
+    width: 100%;
+    box-shadow: 0px 50px 65px -30px rgb(186, 186, 186);
+    margin-top: -.15rem;
+    padding-top: 0rem;
+}
+
+.detail__container div{
+    background-color: var(--first-color);
+    width: 50%;
+    padding: var(--mb-2) 0rem;
+}
+
+.detail__container div p{
+    text-align: center;
+    font-family: var(--title-font);
+    font-weight: 700;
+}
+
+.detail__container div p:first-child{
+    font-size: var(--h1-font-size);
+}
+
+.detail__container div p:last-child{
+    padding-top: var(--mb-0-75);
+    font-size: var(--mb-0-75);
+    letter-spacing: .2rem;
+    font-family: var(--body-font);
+    font-weight: 700;
+}
+
+.detail__container div:last-of-type{
+    background-color: var(--black-button);
+    color: var(--white-color);
+    width: 50%;
+}
+
+.other__container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black-button);
+    width: 100%;
+    margin: 3rem 0rem 4rem 0rem;
+}
+
+.other__container div{
+    width: 50%;
+    padding: var(--mb-2) 0rem;
+}
+
+.other__container div p{
+    text-align: center;
+    font-family: var(--title-font);
+    font-weight: 700;
+}
+
+.other__container div p:first-child{
+    font-size: var(--h1-font-size);
+    margin-bottom: 1rem;
+}
+
+
+/*================ QUOTE ================*/
+
+.quote{
+    color: var(--black-button);
+    margin: 5rem 0rem;
+}
+
+.quote h1{
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Rubik';
+    font-weight: 500;
+    line-height: 1.6em;
+}
+
+.quote p{
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 1.8em;
+    text-transform: uppercase;
+    font-family: "Rubik";
+    font-weight: 500;
+}
+
+/*================ CONTACT ================*/
+
+.contact{
+    display: flex;
+    margin-top: 5rem;
+    width: 100%;
+}
+
+.left__part{
+    background-color: var(--first-color);
+    width: 50%;
+    padding: 4rem 5rem 5rem 5rem;
+}
+
+.title__contact{
+    font-family: var(--title-font);
+    font-size: var(--h1-font-size);
+    margin-bottom: 3.5rem;
+    color: var(--black-button);
+    position: relative;
+}
+
+.title__contact::after{
+    content: "";
+    position: absolute;
+    top: 4.2rem;
+    left: .2rem;
+    background-color: var(--black-button);
+    width: 3.5rem;
+    height: .4rem;
+}
+
+form input{
+    border: none;
+    font-family: var(--body-font);
+    padding: 1rem 1rem;
+}
+
+.name__email {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3%;
+}
+
+.name__email input{
+    width: 50%;
+}
+
+.message__contact{
+    display: block;
+    width: 100%;
+    padding-bottom: 7rem;
+    margin-top: 1rem;
+}
+
+form input[type=submit]{
+    font-family: var(--title-font);
+    font-weight: 700;
+    letter-spacing: 4px;
+    font-size: .8rem;
+    background-color: var(--first-color);
+    text-transform: uppercase;
+    color: #fff;
+    border: .2rem solid #fff;
+    margin-top: 1rem;
+    float: right;
+    display: block;
+    padding: .4rem .5rem;
+    transition: all 300ms ease-out;
+    position: relative;
+}
+
+.valider-before{
+    position: relative;
+    transition: all 300ms ease-out;
+}
+
+.valider-before::before{
+    content: "";
+    position: absolute;
+    top: 1.88rem;
+    right: .5rem;
+    border: .07rem solid transparent;
+    border-left-width: 0rem;
+    border-bottom-width: 0rem;
+    rotate: 45deg;
+    background-color: transparent;
+    width: .3rem;
+    height: .3rem;
+    transition: all 400ms ease-out;
+}
+
+.valider-before::after{
+    content: "";
+    position: absolute;
+    top: 2rem;
+    right: .55rem;
+    background-color: transparent;
+    width: .5rem;
+    height: .1rem;
+    transition: all 400ms ease-out;
+}
+
+form input[type=submit]:hover { 
+    background-color: #f2AB00;
+    border: .2rem solid #f2AB00;
+    color: var(--text-color-light);
+    padding-right: 1rem;
+}
+
+.valider-before.hover::after{
+    background-color: #fff;
+}
+
+.valider-before.hover::before{
+    border: .1rem solid #fff;
+    border-left-width: 0rem;
+    border-bottom-width: 0rem;
+}
+
+.right__part{
+    background-color: rgb(255, 255, 255);
+    width: 50%;
+}
+
+.social__media{
+    background-color: var(--black-button);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    height: 20%;
+}
+
+.footer__information{
+    display: inline-flex;
+    margin-bottom: 2rem;
+    column-gap: .5rem;
+    margin: 5rem 5rem 10rem 5rem;
+    font-family: var(--title-font);
+    font-weight: 500;
+}
+
+.footer__information ul li{
+    color: var(--black-button);
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.footer__information ul li:first-child i{
+    position:relative;
+    top: .1rem;
+    margin-right: .5rem;
+}
+
+.footer__information ul li:nth-child(2) i{
+    position:relative;
+    top: .1rem;
+    margin-right: .5rem;
+}
+
+.footer__information ul li:last-child i{
+    margin-right: .5rem;
+    position: relative;
+    top: .15rem;
+}
+
+
+/*================ RESPONSIVE ================*/
+
+/* tablet size */
+
+@media screen and (max-width: 1100px) {
+
+    /*================ HEADER ================*/
+    
+
+    /*================ HOME ================*/
+    .background{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 6rem;
+        margin-top: 4rem;
+        gap: 7rem;
+    }
+
+    .home__services-details img{
+        width: 3rem;
+        height: 3rem;
+    }
+
+    /*================ ABOUT ================*/
+    .about__dagari div{
+        display: flex;
+        flex-direction: column;
+        text-align:  center;
+    }
+
+    .about__dagari div p{
+        text-align:  justify;
+        margin: auto;
+    }
+    
+
+    /*================ DESCRIPTION ================*/
+    .description__container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .description__detail{
+        width: 100%;
+    }
+    
+    /*================ CONTACT ================*/
+
+    .contact{
+        flex-direction: column;
+    }
+    .left__part{
+        width: 100%;
+        padding: 4rem 2rem 2rem;
+    }
+    .name__email{
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .name__email input{
+        width: 100%;
+    }
+    .right__part{
+        width: 100%;
+        height: 40rem;
+    }
+    .background{
+        padding-right: 0rem;
+    }
+}
+
+
